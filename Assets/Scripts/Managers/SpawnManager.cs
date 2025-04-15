@@ -21,8 +21,13 @@ public class SpawnManager : MonoBehaviour
 
     private void TestSpawn()
     {
-        EnemyBase temp = Instantiate(_enemiesToSpawn[0], new Vector3(_spawnPoint.position.x, _spawnPoint.position.y + 0.5f), Quaternion.identity).GetComponent<EnemyBase>();
+        EnemyBase temp = Instantiate(RandomEnemyPrefab(), new Vector3(_spawnPoint.position.x, _spawnPoint.position.y + 0.5f), Quaternion.identity).GetComponent<EnemyBase>();
         temp.SetWaypoints(_wayPoints);
         Invoke(nameof(TestSpawn), _spawnSpeed);
+    }
+
+    private GameObject RandomEnemyPrefab()
+    {
+        return _enemiesToSpawn[Random.Range(0, _enemiesToSpawn.Count)];
     }
 }

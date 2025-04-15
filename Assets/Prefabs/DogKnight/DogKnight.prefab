@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7307967711743337558}
   - component: {fileID: 827669138597660828}
   m_Layer: 3
-  m_Name: TestEnemy
+  m_Name: DogKnight
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -74,7 +74,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50053eacb371dd24fb5e156cdef58a1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 4
+  _speed: 2
   _waypoints: []
 --- !u!136 &827669138597660828
 CapsuleCollider:
@@ -107,6 +107,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8654258186926287025}
     m_Modifications:
+    - target: {fileID: 8422892626588785114, guid: 214e08cd5e5d74c458e2a81b7ec2c84c, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: d012603d1a62e4e4c848b6b966365666, type: 2}
     - target: {fileID: 8422892626600249584, guid: 214e08cd5e5d74c458e2a81b7ec2c84c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

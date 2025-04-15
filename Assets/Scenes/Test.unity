@@ -2041,6 +2041,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _enemiesToSpawn:
   - {fileID: 5584462831150060552, guid: 12c7a4e392d855747b9a81021fe09f40, type: 3}
+  - {fileID: 5584462831150060552, guid: e2e7f5a3346760442b3fcf607a19e389, type: 3}
+  - {fileID: 5584462831150060552, guid: cd517c6da4035bf4597b0bc1103cc5f6, type: 3}
   _spawnPoint: {fileID: 1527416002}
   _wayPoints:
   - {fileID: 1527416002}
