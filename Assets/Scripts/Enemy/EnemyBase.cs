@@ -16,6 +16,7 @@ public class EnemyBase : MonoBehaviour
     [Header("Damage and Multipliers")]
     [SerializeField] private float _baseDamage;
     [SerializeField] private float _damageMultiplier;
+    public float Damage => _baseDamage * _damageMultiplier;
 
     private bool _isReady = false;
 
