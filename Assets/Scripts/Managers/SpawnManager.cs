@@ -7,6 +7,9 @@ public class SpawnManager : MonoBehaviour
     [SerializeField] private Transform _spawnPoint;
     [SerializeField] private List<Transform> _wayPoints;
     [SerializeField] private float _spawnSpeed;
+
+    // TODO: Check best practice for handling this
+    public static List<EnemyBase> SpawnedEnemies = new();
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -23,6 +26,7 @@ public class SpawnManager : MonoBehaviour
     {
         EnemyBase temp = Instantiate(RandomEnemyPrefab(), new Vector3(_spawnPoint.position.x, _spawnPoint.position.y + 0.5f), Quaternion.identity).GetComponent<EnemyBase>();
         temp.SetWaypoints(_wayPoints);
+        SpawnedEnemies.Add(temp);
         Invoke(nameof(TestSpawn), _spawnSpeed);
     }
 
