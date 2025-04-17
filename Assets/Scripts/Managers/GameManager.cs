@@ -21,7 +21,12 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+#if UNITY_EDITOR
+        if (Application.targetFrameRate != 60)
+        {
+            Application.targetFrameRate = 60;
+        }
+#endif
     }
 
     #region Private Methods

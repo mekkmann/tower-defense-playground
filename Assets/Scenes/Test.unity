@@ -3316,6 +3316,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerCamera: {fileID: 1929399407}
+  _placementCheckMask:
+    serializedVersion: 2
+    m_Bits: 127
   _currentTowerToPlace: {fileID: 0}
   _testTower: {fileID: 7778194597412075438, guid: d74fc408b098a7d42b22dc6730d07de1, type: 3}
 --- !u!1 &1527416001

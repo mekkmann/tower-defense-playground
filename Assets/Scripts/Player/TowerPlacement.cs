@@ -22,10 +22,13 @@ public class TowerPlacement : MonoBehaviour
 
         if (_currentTowerToPlace != null)
         {
+            BoxCollider towerToPlaceCollider = _currentTowerToPlace.GetComponent<BoxCollider>();
+            towerToPlaceCollider.isTrigger = true;
             Ray camRay = _playerCamera.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(camRay, out RaycastHit hitInfo))
+            if (Physics.Raycast(camRay, out RaycastHit hitInfo, 1000f, _placementCheckMask, QueryTriggerInteraction.Ignore))
             {
                 _currentTowerToPlace.transform.position = hitInfo.point;
+                Debug.Log($"Hit: {hitInfo.collider.gameObject}");
             }
 
             if (hitInfo.collider.gameObject.CompareTag("CanPlace"))
@@ -33,6 +36,7 @@ public class TowerPlacement : MonoBehaviour
                 _currentTowerToPlace.GetComponent<TowerBase>().SetColor(Color.white);
                 if (Input.GetMouseButtonDown(0))
                 {
+                    towerToPlaceCollider.isTrigger = true;
                     _currentTowerToPlace = null;
                 }
             }
