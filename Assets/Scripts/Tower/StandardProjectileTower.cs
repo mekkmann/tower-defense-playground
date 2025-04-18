@@ -1,7 +1,7 @@
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class TowerBase : MonoBehaviour
+public class StandardProjectileTower : MonoBehaviour
 {
     [SerializeField] private Transform _headPivot;
     [SerializeField] private Transform _target;

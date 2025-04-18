@@ -25,7 +25,7 @@ public class TowerPlacement : MonoBehaviour
             if (CanPlaceTower(hitInfo))
             {
                 // TODO: Refactor color change
-                _currentTowerToPlace.GetComponent<TowerBase>().SetColor(Color.white);
+                _currentTowerToPlace.GetComponent<StandardProjectileTower>().SetColor(Color.white);
                 if (Input.GetMouseButtonDown(0))
                 {
                     PlaceTower();
@@ -34,7 +34,7 @@ public class TowerPlacement : MonoBehaviour
             else
             {
                 // TODO: Refactor color change
-                _currentTowerToPlace.GetComponent<TowerBase>().SetColor(Color.red);
+                _currentTowerToPlace.GetComponent<StandardProjectileTower>().SetColor(Color.red);
             }
         }
     }
