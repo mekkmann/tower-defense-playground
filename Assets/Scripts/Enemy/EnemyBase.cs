@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class EnemyBase : MonoBehaviour
 {
+    public Transform TowerAimPoint;
+
     [Header("Movement")]
     [SerializeField] private float _speed = 2f;
     [SerializeField] private List<Transform> _waypoints;
