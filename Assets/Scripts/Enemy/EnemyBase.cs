@@ -63,6 +63,13 @@ public class EnemyBase : MonoBehaviour
         FollowPath();
     }
     #region Private Methods
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Bullet"))
+        {
+            TakeDamage(3);
+        }
+    }
     private void Die()
     {
         // TO BE CHANGED
