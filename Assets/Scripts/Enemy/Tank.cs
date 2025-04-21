@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class Tank : EnemyBase
@@ -7,6 +8,7 @@ public class Tank : EnemyBase
     [SerializeField] private float _tauntCooldown = 10f;
     private float _cooldownTracker = 0f;
     [SerializeField] private float _tauntRange = 10f;
+    [SerializeField] private ParticleSystem _tauntParticleSystem;
 
     void Start()
     {
@@ -19,7 +21,7 @@ public class Tank : EnemyBase
             _cooldownTracker -= Time.deltaTime;
             if (_cooldownTracker <= 0f)
             {
-                Taunt();
+                StartCoroutine(Taunt());
             }
         }
 
@@ -27,8 +29,10 @@ public class Tank : EnemyBase
     }
 
     // TODO: Refactor to use hurtbox
-    private void Taunt()
+    private IEnumerator Taunt()
     {
+        _cooldownTracker = _tauntCooldown;
+        _tauntParticleSystem.Play();
         var towers = GameObject.FindGameObjectsWithTag("Tower");
         // for every tower in _tauntrange
         foreach (var tower in towers)
@@ -43,7 +47,7 @@ public class Tank : EnemyBase
                         tower.GetComponent<StandardProjectileTower>().TauntedCoroutine(TowerAimPoint, _tauntDuration)
                         );
         }
-
-        _cooldownTracker = _tauntCooldown;
+        yield return new WaitForSeconds(_tauntDuration);
+        _tauntParticleSystem.Stop();
     }
 }
