@@ -19,6 +19,10 @@ public class EnemyBase : MonoBehaviour
     [SerializeField] private int _currentHealth;
     [SerializeField] private int _maxHealth;
 
+    [Range(-1f, 1f)]
+    [Tooltip("0 is no reduction, under 0 is increased damage, over 0 is reduced damage")]
+    [SerializeField] private float _damageModifier = 0f;
+
     [Header("Damage and Multipliers")]
     [SerializeField] private float _baseDamage;
     [SerializeField] private float _damageMultiplier;
@@ -28,14 +32,9 @@ public class EnemyBase : MonoBehaviour
 
     private void Awake()
     {
-        _maxHealth = _currentHealth;
+        _currentHealth = _maxHealth;
         _healthBar.UpdateHealthBar(_currentHealth, _maxHealth);
     }
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-    }
-
     private void FollowPath()
     {
         if (_waypoints == null) return;
@@ -54,15 +53,9 @@ public class EnemyBase : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    protected virtual void Update()
     {
         if (!_isReady || _isDead) return;
-
-        // Test Heal 
-        if (Input.GetKeyDown(KeyCode.H)) Heal(3);
-
-        // Test Damage
-        if (Input.GetKeyDown(KeyCode.G)) TakeDamage(3);
 
         FollowPath();
     }
@@ -71,7 +64,7 @@ public class EnemyBase : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Bullet"))
         {
-            TakeDamage(3);
+            TakeDamage(4);
         }
     }
 
@@ -100,12 +93,19 @@ public class EnemyBase : MonoBehaviour
 
     private void TakeDamage(float incomingDamage)
     {
-        _currentHealth -= (int)incomingDamage;
+        // TODO: Add damage reduction
+        _currentHealth -= CalculateIncomingDamage(incomingDamage);
         _healthBar.UpdateHealthBar(_currentHealth, _maxHealth);
+        Debug.Log($"{gameObject.name} took {CalculateIncomingDamage(incomingDamage)} damage");
         if (_currentHealth <= 0)
         {
             Die();
         }
+    }
+
+    private int CalculateIncomingDamage(float incomingDamage)
+    {
+        return (int)(incomingDamage * (1f - _damageModifier));
     }
     #endregion
 
