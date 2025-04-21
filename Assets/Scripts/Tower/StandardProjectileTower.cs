@@ -1,3 +1,4 @@
+using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -9,16 +10,20 @@ public class StandardProjectileTower : MonoBehaviour
     [SerializeField] private Transform _firingPoint;
     [SerializeField] private GameObject _projectilePrefab;
     [SerializeField] private float _projectileSpeed;
+    [Header("Enemy Effects")]
+    [SerializeField] private bool _isTaunted;
 
     private void Start()
     {
         Invoke(nameof(Fire), 1f);
-
     }
     // Update is called once per frame
     void Update()
     {
-        TargetClosestEnemy();
+        if (!_isTaunted)
+        {
+            TargetClosestEnemy();
+        }
         AimAtTarget();
     }
     private void Fire()
@@ -62,6 +67,16 @@ public class StandardProjectileTower : MonoBehaviour
     {
         if (_headPivot == null) return;
         _headPivot.LookAt(_target);
+    }
+
+    public IEnumerator TauntedCoroutine(Transform taunterAimPoint, float duration)
+    {
+        _isTaunted = true;
+
+        _target = taunterAimPoint;
+        yield return new WaitForSeconds(duration);
+
+        _isTaunted = false;
     }
 
     public void SetColor(Color color)

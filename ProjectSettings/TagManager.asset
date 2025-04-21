@@ -8,6 +8,7 @@ TagManager:
   - CantPlace
   - Enemy
   - Bullet
+  - Tower
   layers:
   - Default
   - TransparentFX

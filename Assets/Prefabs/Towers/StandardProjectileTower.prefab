@@ -294,7 +294,7 @@ GameObject:
   - component: {fileID: 547884799366669318}
   m_Layer: 7
   m_Name: StandardProjectileTower
-  m_TagString: Untagged
+  m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -333,6 +333,7 @@ MonoBehaviour:
   _firingPoint: {fileID: 7595515838171796938}
   _projectilePrefab: {fileID: 1302624474362689022, guid: 053cee4a4a59157419b3312aad7834d8, type: 3}
   _projectileSpeed: 50
+  _isTaunted: 0
 --- !u!65 &547884799366669318
 BoxCollider:
   m_ObjectHideFlags: 0
