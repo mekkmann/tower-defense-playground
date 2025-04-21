@@ -5,12 +5,16 @@ public class EnemyBase : MonoBehaviour
 {
     public Transform TowerAimPoint;
 
+    [Header("Animation")]
+    [SerializeField] private Animator _animator;
+
     [Header("Movement")]
     [SerializeField] private float _speed = 2f;
     [SerializeField] private List<Transform> _waypoints;
     private int _currentWaypointIndex = 0;
 
     [Header("Health and Damage Reduction")]
+    [SerializeField] private bool _isDead = false;
     [SerializeField] private FloatingHealthBar _healthBar;
     [SerializeField] private int _currentHealth;
     [SerializeField] private int _maxHealth;
@@ -52,7 +56,7 @@ public class EnemyBase : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!_isReady) return;
+        if (!_isReady || _isDead) return;
 
         // Test Heal 
         if (Input.GetKeyDown(KeyCode.H)) Heal(3);
@@ -70,10 +74,15 @@ public class EnemyBase : MonoBehaviour
             TakeDamage(3);
         }
     }
+
+    // TODO: Refactor to destroy gameobject .5 seconds after death animation is finished
     private void Die()
     {
-        // TO BE CHANGED
-        Destroy(gameObject);
+        _isDead = true;
+        _healthBar.gameObject.SetActive(false);
+        _animator.SetBool("isDead", true);
+
+        Invoke(nameof(DestroyGameObject), 2f);
     }
 
     private void Heal(int incomingHeal)
@@ -101,6 +110,10 @@ public class EnemyBase : MonoBehaviour
     #endregion
 
     #region Public Methods
+    public void DestroyGameObject()
+    {
+        Destroy(gameObject);
+    }
     public void SetWaypoints(List<Transform> waypoints)
     {
         _waypoints = waypoints;

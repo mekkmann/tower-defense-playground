@@ -2613,6 +2613,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _enemiesToSpawn:
   - {fileID: 5584462831150060552, guid: e2e7f5a3346760442b3fcf607a19e389, type: 3}
+  - {fileID: 5584462831150060552, guid: cd517c6da4035bf4597b0bc1103cc5f6, type: 3}
+  - {fileID: 5584462831150060552, guid: 12c7a4e392d855747b9a81021fe09f40, type: 3}
   _spawnPoint: {fileID: 1527416002}
   _wayPoints:
   - {fileID: 1527416002}
@@ -3510,6 +3512,63 @@ Transform:
   - {fileID: 873840619}
   m_Father: {fileID: 1926388069}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1664978311
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6296508971493310395, guid: d74fc408b098a7d42b22dc6730d07de1, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 5.439743
+      objectReference: {fileID: 0}
+    - target: {fileID: 6296508971493310395, guid: d74fc408b098a7d42b22dc6730d07de1, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6296508971493310395, guid: d74fc408b098a7d42b22dc6730d07de1, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 5.33
+      objectReference: {fileID: 0}
+    - target: {fileID: 6296508971493310395, guid: d74fc408b098a7d42b22dc6730d07de1, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6296508971493310395, guid: d74fc408b098a7d42b22dc6730d07de1, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6296508971493310395, guid: d74fc408b098a7d42b22dc6730d07de1, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6296508971493310395, guid: d74fc408b098a7d42b22dc6730d07de1, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6296508971493310395, guid: d74fc408b098a7d42b22dc6730d07de1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6296508971493310395, guid: d74fc408b098a7d42b22dc6730d07de1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6296508971493310395, guid: d74fc408b098a7d42b22dc6730d07de1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7778194597412075438, guid: d74fc408b098a7d42b22dc6730d07de1, type: 3}
+      propertyPath: m_Name
+      value: StandardProjectileTower (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d74fc408b098a7d42b22dc6730d07de1, type: 3}
 --- !u!1 &1751807179
 GameObject:
   m_ObjectHideFlags: 0
@@ -3650,6 +3709,63 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1776110952}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1001 &1782103931
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6296508971493310395, guid: d74fc408b098a7d42b22dc6730d07de1, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 7.187932
+      objectReference: {fileID: 0}
+    - target: {fileID: 6296508971493310395, guid: d74fc408b098a7d42b22dc6730d07de1, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6296508971493310395, guid: d74fc408b098a7d42b22dc6730d07de1, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.7952147
+      objectReference: {fileID: 0}
+    - target: {fileID: 6296508971493310395, guid: d74fc408b098a7d42b22dc6730d07de1, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6296508971493310395, guid: d74fc408b098a7d42b22dc6730d07de1, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6296508971493310395, guid: d74fc408b098a7d42b22dc6730d07de1, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6296508971493310395, guid: d74fc408b098a7d42b22dc6730d07de1, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6296508971493310395, guid: d74fc408b098a7d42b22dc6730d07de1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6296508971493310395, guid: d74fc408b098a7d42b22dc6730d07de1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6296508971493310395, guid: d74fc408b098a7d42b22dc6730d07de1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7778194597412075438, guid: d74fc408b098a7d42b22dc6730d07de1, type: 3}
+      propertyPath: m_Name
+      value: StandardProjectileTower
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d74fc408b098a7d42b22dc6730d07de1, type: 3}
 --- !u!1 &1816337729
 GameObject:
   m_ObjectHideFlags: 0
@@ -4205,3 +4321,5 @@ SceneRoots:
   - {fileID: 1180764149}
   - {fileID: 1521796419}
   - {fileID: 1926388069}
+  - {fileID: 1782103931}
+  - {fileID: 1664978311}
