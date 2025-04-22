@@ -4,7 +4,7 @@ A playground for learning about how to make a tower defense game
 ## Tower Types
 ### Standard Projectile Tower (V1 implemented)
 - Fires a projectile at a singular target, dealing damage to a singular target
-### AoE Tower (Not yet implemented)
+### AoE Tower (In progress)
 - Fires an explosive projectile at a singular target, dealing damage to the target fired at and to all enemies caught in the blast radius
 ### Debuff Tower (Not yet implemented)
 - Applies a debuff to all enemies within range of the tower
@@ -16,6 +16,6 @@ A playground for learning about how to make a tower defense game
 ### Tank (V1 implemented)
 - Higher damage reduction and higher HP
 - Can force towers within range to target it instead of other enemies for a short amount of time (taunt)
-### Healer (In progress)
+### Healer (V1 implemented)
 - Lower damage reduction and lower HP
 - Heals other enemy types within range of the healer
