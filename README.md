@@ -13,9 +13,9 @@ A playground for learning about how to make a tower defense game
 ### Basic (V1 implemented)
 - 3 versions: slow, normal and fast
 - Normal damage reduction and normal HP
-### Tank (Not yet implemented)
+### Tank (V1 implemented)
 - Higher damage reduction and higher HP
 - Can force towers within range to target it instead of other enemies for a short amount of time (taunt)
-### Healer (Not yet implemented)
+### Healer (In progress)
 - Lower damage reduction and lower HP
 - Heals other enemy types within range of the healer
