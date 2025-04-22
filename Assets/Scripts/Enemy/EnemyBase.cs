@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,7 +7,7 @@ public class EnemyBase : MonoBehaviour
     public Transform TowerAimPoint;
 
     [Header("Animation")]
-    [SerializeField] private Animator _animator;
+    [SerializeField] protected Animator _animator;
 
     [Header("Movement")]
     [SerializeField] private float _speed = 2f;
@@ -15,9 +16,13 @@ public class EnemyBase : MonoBehaviour
 
     [Header("Health and Damage Reduction")]
     [SerializeField] private bool _isDead = false;
+    public bool IsDead => _isDead;
     [SerializeField] private FloatingHealthBar _healthBar;
     [SerializeField] private int _currentHealth;
+    public int CurrentHealth => _currentHealth;
     [SerializeField] private int _maxHealth;
+    public int MaxHealth => _maxHealth;
+    public float CurrentHealthPercentage => _currentHealth / _maxHealth;
 
     [Range(-1f, 1f)]
     [Tooltip("0 is no reduction, under 0 is increased damage, over 0 is reduced damage")]
@@ -69,13 +74,15 @@ public class EnemyBase : MonoBehaviour
     }
 
     // TODO: Refactor to destroy gameobject .5 seconds after death animation is finished
-    private void Die()
+    private IEnumerator Die()
     {
         _isDead = true;
         _healthBar.gameObject.SetActive(false);
         _animator.SetBool("isDead", true);
 
-        Invoke(nameof(DestroyGameObject), 2f);
+        yield return new WaitForSeconds(2f);
+        SpawnManager.RemoveFromSpawnedEnemies(gameObject);
+        Destroy(gameObject);
     }
 
     private void Heal(int incomingHeal)
@@ -89,6 +96,12 @@ public class EnemyBase : MonoBehaviour
             }
             _healthBar.UpdateHealthBar(_currentHealth, _maxHealth);
         }
+        Debug.Log($"{gameObject.name} healed {incomingHeal} hp");
+    }
+
+    public void RestoreHealth(int incomingHeal)
+    {
+        Heal(incomingHeal);
     }
 
     private void TakeDamage(float incomingDamage)

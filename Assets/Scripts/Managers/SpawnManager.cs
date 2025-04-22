@@ -9,7 +9,7 @@ public class SpawnManager : MonoBehaviour
     [SerializeField] private float _spawnSpeed;
 
     // TODO: Check best practice for handling this
-    public static List<EnemyBase> SpawnedEnemies = new();
+    public static List<GameObject> SpawnedEnemies = new();
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -26,12 +26,17 @@ public class SpawnManager : MonoBehaviour
     {
         EnemyBase temp = Instantiate(RandomEnemyPrefab(), new Vector3(_spawnPoint.position.x, _spawnPoint.position.y + 0.5f), Quaternion.identity).GetComponent<EnemyBase>();
         temp.SetWaypoints(_wayPoints);
-        SpawnedEnemies.Add(temp);
+        SpawnedEnemies.Add(temp.gameObject);
         Invoke(nameof(TestSpawn), _spawnSpeed);
     }
 
     private GameObject RandomEnemyPrefab()
     {
         return _enemiesToSpawn[Random.Range(0, _enemiesToSpawn.Count)];
+    }
+
+    public static void RemoveFromSpawnedEnemies(GameObject toRemove)
+    {
+        SpawnedEnemies.Remove(toRemove);
     }
 }

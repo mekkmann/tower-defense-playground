@@ -37,15 +37,17 @@ public class StandardProjectileTower : MonoBehaviour
     {
         float closestDistance = float.MaxValue;
         EnemyBase closestEnemy = null;
-        foreach (EnemyBase enemy in SpawnManager.SpawnedEnemies)
+        foreach (GameObject enemyGameObject in SpawnManager.SpawnedEnemies)
         {
-            if (enemy.IsDestroyed()) continue;
+            if (enemyGameObject.IsDestroyed()) continue;
 
-            float tempDistance = Vector3.Distance(enemy.gameObject.transform.position, transform.position);
+            float tempDistance = Vector3.Distance(enemyGameObject.transform.position, transform.position);
+            EnemyBase enemyScript = enemyGameObject.GetComponent<EnemyBase>();
+
             if (tempDistance < closestDistance) // TODO: Implement max range for tower
             {
                 closestDistance = tempDistance;
-                closestEnemy = enemy;
+                closestEnemy = enemyScript;
             }
         }
 
