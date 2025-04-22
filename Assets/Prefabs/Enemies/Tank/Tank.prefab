@@ -397,7 +397,7 @@ MonoBehaviour:
   _healthBar: {fileID: 758649477728758296}
   _currentHealth: 0
   _maxHealth: 15
-  _damageModifier: 1
+  _damageModifier: 0.5
   _baseDamage: 1
   _damageMultiplier: 1
   _tauntDuration: 3
