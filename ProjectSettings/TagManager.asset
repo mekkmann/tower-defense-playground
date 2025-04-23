@@ -7,8 +7,9 @@ TagManager:
   - CanPlace
   - CantPlace
   - Enemy
-  - Bullet
   - Tower
+  - Projectile
+  - Explosion
   layers:
   - Default
   - TransparentFX

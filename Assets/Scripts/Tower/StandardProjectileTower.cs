@@ -28,7 +28,7 @@ public class StandardProjectileTower : MonoBehaviour
     }
     private void Fire()
     {
-        Bullet projectile = Instantiate(_projectilePrefab, _firingPoint.position, Quaternion.identity).GetComponent<Bullet>();
+        Projectile projectile = Instantiate(_projectilePrefab, _firingPoint.position, Quaternion.identity).GetComponent<Projectile>();
         projectile.transform.rotation = _headPivot.transform.rotation;
         projectile.SetSpeed(_projectileSpeed);
         Invoke(nameof(Fire), 1f);

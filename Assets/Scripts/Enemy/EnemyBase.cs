@@ -67,9 +67,10 @@ public class EnemyBase : MonoBehaviour
     #region Private Methods
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Bullet"))
+        if (collision.gameObject.CompareTag("Projectile"))
         {
-            TakeDamage(4);
+            TakeDamage(collision.gameObject.GetComponent<Projectile>().Damage);
+            return;
         }
     }
 
