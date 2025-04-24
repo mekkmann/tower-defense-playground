@@ -9,11 +9,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1115351060745210198}
+  - component: {fileID: 336376021950534956}
   - component: {fileID: 6007145496296281424}
   - component: {fileID: 3989345560003655522}
   - component: {fileID: 4681234527777727003}
   - component: {fileID: 7888983570366534056}
-  - component: {fileID: 336376021950534956}
   m_Layer: 8
   m_Name: ExplosiveProjectile
   m_TagString: Projectile
@@ -30,12 +30,28 @@ Transform:
   m_GameObject: {fileID: 1302624474362689022}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.18, z: 0.0708}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &336376021950534956
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1302624474362689022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48ddda9364709a445a509f51e2d28af4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damage: 1
+  _isExplosive: 1
+  _blastRadius: 3
+  _explosionDamage: 1
 --- !u!33 &6007145496296281424
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -137,16 +153,3 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &336376021950534956
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1302624474362689022}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 48ddda9364709a445a509f51e2d28af4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _damage: 1

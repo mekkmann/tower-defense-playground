@@ -70,9 +70,16 @@ public class EnemyBase : MonoBehaviour
         if (collision.gameObject.CompareTag("Projectile"))
         {
             TakeDamage(collision.gameObject.GetComponent<Projectile>().Damage);
-            return;
+            Debug.Log($"{gameObject.name} took {collision.gameObject.GetComponent<Projectile>().Damage} normal damage");
+
+        }
+        if (collision.gameObject.CompareTag("Explosion"))
+        {
+            TakeDamage(collision.gameObject.GetComponent<Explosion>().ExplosionDamage);
+            Debug.Log($"{gameObject.name} took {collision.gameObject.GetComponent<Explosion>().ExplosionDamage} explosive damage");
         }
     }
+
 
     // TODO: Refactor to destroy gameobject .5 seconds after death animation is finished
     private IEnumerator Die()
@@ -110,10 +117,10 @@ public class EnemyBase : MonoBehaviour
         // TODO: Add damage reduction
         _currentHealth -= CalculateIncomingDamage(incomingDamage);
         _healthBar.UpdateHealthBar(_currentHealth, _maxHealth);
-        Debug.Log($"{gameObject.name} took {CalculateIncomingDamage(incomingDamage)} damage");
+        //Debug.Log($"{gameObject.name} took {CalculateIncomingDamage(incomingDamage)} damage");
         if (_currentHealth <= 0)
         {
-            Die();
+            StartCoroutine(Die());
         }
     }
 
