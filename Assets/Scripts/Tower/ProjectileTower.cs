@@ -2,11 +2,12 @@ using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class StandardProjectileTower : MonoBehaviour
+public class ProjectileTower : MonoBehaviour
 {
     [SerializeField] private Transform _headPivot;
     [SerializeField] private Transform _target;
     [Header("Firing and Projectile")]
+    [SerializeField] private bool _isExplosive = false;
     [SerializeField] private Transform _firingPoint;
     [SerializeField] private GameObject _projectilePrefab;
     [SerializeField] private float _projectileSpeed;
@@ -15,7 +16,14 @@ public class StandardProjectileTower : MonoBehaviour
 
     private void Start()
     {
-        Invoke(nameof(Fire), 1f);
+        if (_isExplosive)
+        {
+            Invoke(nameof(Fire), 2f);
+        }
+        else
+        {
+            Invoke(nameof(Fire), 1f);
+        }
     }
     // Update is called once per frame
     void Update()
@@ -31,7 +39,14 @@ public class StandardProjectileTower : MonoBehaviour
         Projectile projectile = Instantiate(_projectilePrefab, _firingPoint.position, Quaternion.identity).GetComponent<Projectile>();
         projectile.transform.rotation = _headPivot.transform.rotation;
         projectile.SetSpeed(_projectileSpeed);
-        Invoke(nameof(Fire), 1f);
+        if (_isExplosive)
+        {
+            Invoke(nameof(Fire), 2f);
+        }
+        else
+        {
+            Invoke(nameof(Fire), 1f);
+        }
     }
     private void TargetClosestEnemy()
     {

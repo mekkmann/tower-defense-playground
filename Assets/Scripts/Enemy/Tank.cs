@@ -44,7 +44,7 @@ public class Tank : EnemyBase
 
             // set tower target to this gameobjects aimpoint
             StartCoroutine(
-                        tower.GetComponent<StandardProjectileTower>().TauntedCoroutine(TowerAimPoint, _tauntDuration)
+                        tower.GetComponent<ProjectileTower>().TauntedCoroutine(TowerAimPoint, _tauntDuration)
                         );
         }
         yield return new WaitForSeconds(_tauntDuration);
