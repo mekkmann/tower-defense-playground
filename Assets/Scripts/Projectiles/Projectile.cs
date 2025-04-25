@@ -9,10 +9,9 @@ public class Projectile : MonoBehaviour, IExplosive
     public int Damage => _damage;
     [Header("Explosive")]
     [SerializeField] private bool _isExplosive = false;
+    [SerializeField] private ParticleSystem _explosionParticles;
     [SerializeField] private float _blastRadius = 1f;
-    #region Explosive Interface Variables
     public float BlastRadius => _blastRadius;
-    #endregion
     [SerializeField] private int _explosionDamage = 1;
     public int ExplosionDamage => _explosionDamage;
 
@@ -35,26 +34,31 @@ public class Projectile : MonoBehaviour, IExplosive
 
         if (_isExplosive)
         {
-            Explode();
+            Explode(collision.transform.position);
         }
 
         Destroy(gameObject);
     }
     #region Explosive Interface Methods
-    public void Explode()
+    public void Explode(Vector3 position)
     {
         // GameObject to hold collider
         GameObject blastZone = new("ExplosionRadius");
-        blastZone.transform.position = transform.position; // Set blastZone position to the projectiles position
+        blastZone.transform.position = position; // Set blastZone position to the projectiles position
+
+        // Instantiate VFX
+        ParticleSystem explosionVFX = Instantiate(_explosionParticles, position, Quaternion.identity);
+        explosionVFX.transform.localScale = new Vector3(_blastRadius, _blastRadius, _blastRadius);
 
         // Add the SphereCollider
         SphereCollider collider = blastZone.AddComponent<SphereCollider>();
         collider.tag = "Explosion";
-        //collider.isTrigger = true; // Don't block physics
+        collider.isTrigger = true; // Don't block physics
         collider.radius = _blastRadius;
 
         // Add script to gameobject
         blastZone.AddComponent<Explosion>().Init(_explosionDamage);
+
 
         // Destroy GameObject
         Destroy(blastZone, 0.1f);

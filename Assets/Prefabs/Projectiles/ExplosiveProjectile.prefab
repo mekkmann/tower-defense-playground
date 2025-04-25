@@ -50,6 +50,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damage: 1
   _isExplosive: 1
+  _explosionParticles: {fileID: 7408436936161246105, guid: 87f1f1add5437564988e72d3f0053b19, type: 3}
   _blastRadius: 3
   _explosionDamage: 1
 --- !u!33 &6007145496296281424

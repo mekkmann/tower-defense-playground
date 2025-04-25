@@ -73,10 +73,15 @@ public class EnemyBase : MonoBehaviour
             Debug.Log($"{gameObject.name} took {collision.gameObject.GetComponent<Projectile>().Damage} normal damage");
 
         }
-        if (collision.gameObject.CompareTag("Explosion"))
+
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Explosion"))
         {
-            TakeDamage(collision.gameObject.GetComponent<Explosion>().ExplosionDamage);
-            Debug.Log($"{gameObject.name} took {collision.gameObject.GetComponent<Explosion>().ExplosionDamage} explosive damage");
+            TakeDamage(other.gameObject.GetComponent<Explosion>().ExplosionDamage);
+            Debug.Log($"{gameObject.name} took {other.gameObject.GetComponent<Explosion>().ExplosionDamage} explosive damage");
         }
     }
 
